@@ -1,0 +1,10 @@
+CREATE TABLE `users` (
+ `id` int(11) NOT NULL AUTO_INCREMENT,
+ `username` varchar(50) NOT NULL,
+ `password` varchar(255) NOT NULL,
+ `auth_token` varchar(80) DEFAULT NULL,
+ `role` varchar(50) DEFAULT 'COMPETITOR',
+ `created_at` datetime DEFAULT CURRENT_TIMESTAMP,
+ PRIMARY KEY (`id`),
+ UNIQUE KEY `username` (`username`)
+) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=utf8
