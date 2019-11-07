@@ -5,8 +5,21 @@
     $_POST = json_decode($rest_json, true);
     $username =  $_POST['username'];
     $password = $_POST['password'];
-    if($username === 'admin' && $password == 'admin')
+    $con = mysqli_connect("localhost", "root", "", "othscmsdb");
+    $sql = "SELECT * FROM users WHERE username=\"$username\"";
+    $res = mysqli_query($con, $sql);
+    $p = '';
+    if(mysqli_num_rows($res)>0){
+      while($row = mysqli_fetch_assoc($res)){
+        $p = $row['password'];
+      }
+    }else{
+      echo 'failure';
+      exit;
+    }
+
+    if($password == $p)
         echo 'success';
     else
-        echo 'failure';  
+        echo 'failure';
 ?>
