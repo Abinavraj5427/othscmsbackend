@@ -8,5 +8,5 @@
     if($username === 'admin' && $password == 'admin')
         echo 'success';
     else
-        echo 'failure';
+        echo 'failure';  
 ?>

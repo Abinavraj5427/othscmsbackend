@@ -8,3 +8,16 @@ CREATE TABLE `users` (
  PRIMARY KEY (`id`),
  UNIQUE KEY `username` (`username`)
 ) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=utf8
+
+CREATE TABLE `teams` (
+ `id` int(11) NOT NULL AUTO_INCREMENT,
+ `member1` varchar(50) DEFAULT '',
+ `member2` varchar(50) DEFAULT '',
+ `member3` varchar(50) DEFAULT '',
+ `created_at` datetime DEFAULT CURRENT_TIMESTAMP,
+ `score1` int(11) DEFAULT '0',
+ `score2` int(11) DEFAULT '0',
+ `score3` int(11) DEFAULT '0',
+ `teamScore` int(11) DEFAULT '0',
+ PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8
