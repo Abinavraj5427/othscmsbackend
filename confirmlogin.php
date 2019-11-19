@@ -20,7 +20,7 @@
     //checking if password is correct
     if(mysqli_num_rows($res)>0){
         while($row = mysqli_fetch_assoc($res)){
-            $response = array('authenticated' => true, 'role' => $row['role']);
+            $response = array('authenticated' => true, 'role' => $row['role'], 'team' => $row['username']);
             echo json_encode($response);
             exit;
         }

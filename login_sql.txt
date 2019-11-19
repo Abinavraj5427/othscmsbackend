@@ -21,3 +21,10 @@ CREATE TABLE `teams` (
  `teamScore` int(11) DEFAULT '0',
  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8
+
+CREATE TABLE `problems` (
+ `id` int(11) NOT NULL AUTO_INCREMENT,
+ `problem` varchar(50) NOT NULL,
+ PRIMARY KEY (`id`),
+ UNIQUE KEY `problem` (`problem`)
+) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=utf8
