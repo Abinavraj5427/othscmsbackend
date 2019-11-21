@@ -25,7 +25,7 @@
   if(mysqli_num_rows($res)>0){
     while($row = mysqli_fetch_assoc($res)){
       $team_id = $row['id'];
-      $sql_team = "SELECT * FROM problems WHERE team=$team_id";
+      $sql_team = "SELECT * FROM submissions WHERE team=$team_id";
       $prob = mysqli_query($con, $sql_team);
 
       if(mysqli_num_rows($prob)>0){
@@ -37,7 +37,7 @@
           if($problem["status"]=="completed"&&!in_array($problem["problem"],$completed)){
             $completed[] = $problem["problem"];
             $pID = $problem["problem"];
-            $sql_team = "SELECT * FROM problems WHERE team=$team_id AND problem=$pID";
+            $sql_team = "SELECT * FROM submissions WHERE team=$team_id AND problem=$pID";
             $attempts = mysqli_query($con, $sql_team);
             $score = 60;
             if(mysqli_num_rows($attempts)>0){
