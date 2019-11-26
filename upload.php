@@ -4,8 +4,8 @@
     header("Access-Control-Allow-Headers: *");
 
     //HTTP inputs
-    $rest_json = file_get_contents("php://input");
-    $_POST = json_decode($rest_json, true);
+    // $rest_json = file_get_contents("php://input");
+    // $_POST = json_decode($rest_json, true);
 
     $problem = $_POST['problem'];
     $team = $_POST['team'];
@@ -31,8 +31,8 @@
     //The path you wish to upload the file to
     $filePath = "submissions/" . $team . "/";
 
-    echo $team;
-    die;
+    // echo $team;
+    // die;
 
     if(is_uploaded_file($filetemp)) {
         if(move_uploaded_file($filetemp, $filePath . $filename)) {
