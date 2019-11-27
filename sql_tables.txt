@@ -29,9 +29,11 @@ CREATE TABLE `problems` (
  UNIQUE KEY `problem` (`problem`)
 ) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=utf8
 
-CREATE TABLE IF NOT EXISTS `submissions` (
-  `team` int(128) NOT NULL,
-  `problem` int(32) NOT NULL,
-  `status` varchar(32) NOT NULL,
-  `created_at` datetime DEFAULT CURRENT_TIMESTAMP,
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+CREATE TABLE `submissions` (
+ `team` int(128) NOT NULL,
+ `user` varchar(255) NOT NULL,
+ `problem` int(32) NOT NULL,
+ `problemName` varchar(255) NOT NULL,
+ `status` varchar(32) NOT NULL,
+ `filePath` varchar(255) NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8

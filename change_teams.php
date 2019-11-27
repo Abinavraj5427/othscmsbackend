@@ -8,6 +8,7 @@
     $_POST = json_decode($rest_json, true);
     $username =  $_POST['username'];
     $password =  $_POST['password'];
+    $role = $_POST['role'];
     $append = $_POST['append'];
 
     //connecting to SQL Database
@@ -17,7 +18,7 @@
     if($append){
         
         //looking for matching ptoblem
-        $sql = "INSERT INTO users (username, password) VALUES (\"$username\", \"$password\")";
+        $sql = "INSERT INTO users (username, password, role) VALUES (\"$username\", \"$password\", \"$role\")";
         $res = mysqli_query($con, $sql);
         if (!is_dir('submissions/'.$username)) 
             mkdir("submissions/".$username, 0700);

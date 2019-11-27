@@ -7,14 +7,8 @@
     $team = $_POST['team'];
 
 
-    // //connecting to SQL Database
-    // $con = mysqli_connect("localhost", "root", "", "othscmsdb");
-
-    // //looking for matching username
-    // $sql = "INSERT INTO submissions (team, problem, file) VALUES ($team, $problem, $file)";
-    // $res = mysqli_query($con, $sql);
-
-    
+    //connecting to SQL Database
+    $con = mysqli_connect("localhost", "root", "", "othscmsdb");
     
     $filename = $_FILES['file']['name'];
     //Stores the filetype e.g image/jpeg
@@ -41,6 +35,12 @@
 
     if(is_uploaded_file($filetemp)) {
         if(move_uploaded_file($filetemp, $filePath . $filename)) {
+
+            $filePath = $filePath . $filename;
+            
+            $sql = "INSERT INTO submissions (user, problemName, filePath) VALUES (\"$team\", \"$problem\", \"$filePath\")";
+            $res = mysqli_query($con, $sql);
+
             echo "Sussecfully uploaded your image.";
         }
         else {
