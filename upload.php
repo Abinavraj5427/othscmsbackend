@@ -3,10 +3,6 @@
     header("Access-Control-Allow-Origin: *");
     header("Access-Control-Allow-Headers: *");
 
-    //HTTP inputs
-    // $rest_json = file_get_contents("php://input");
-    // $_POST = json_decode($rest_json, true);
-
     $problem = $_POST['problem'];
     $team = $_POST['team'];
 
@@ -31,8 +27,17 @@
     //The path you wish to upload the file to
     $filePath = "submissions/" . $team . "/";
 
-    // echo $team;
-    // die;
+    //separating by problem
+    if (!is_dir($filePath.$problem)) 
+    mkdir($filePath.$problem, 0700);
+
+    $filePath = $filePath . $problem . "/";
+
+    //date for separating attempts
+    $date = date('Y-m-d-H-i-s');
+    mkdir($filePath.$date, 0700);
+
+    $filePath = $filePath . $date . "/";
 
     if(is_uploaded_file($filetemp)) {
         if(move_uploaded_file($filetemp, $filePath . $filename)) {
