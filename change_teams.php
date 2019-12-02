@@ -20,7 +20,7 @@
         //looking for matching ptoblem
         $sql = "INSERT INTO users (username, password, role) VALUES (\"$username\", \"$password\", \"$role\")";
         $res = mysqli_query($con, $sql);
-        if (!is_dir('submissions/'.$username)) 
+        if (!is_dir('submissions/'.$username) && $role == 'COMPETITOR') 
             mkdir("submissions/".$username, 0700);
         echo "success";
         die;
@@ -29,7 +29,7 @@
         //looking for matching problem
         $sql = "DELETE FROM users WHERE username = \"$username\"";
         $res = mysqli_query($con, $sql);
-        if (is_dir('submissions/'.$username))
+        if (is_dir('submissions/'.$username) && $role == 'COMPETITOR')
             rmdir('submissions/'.$username);
         echo "success";
         die;

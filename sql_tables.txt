@@ -19,6 +19,7 @@ CREATE TABLE `teams` (
  `score2` int(11) DEFAULT '0',
  `score3` int(11) DEFAULT '0',
  `teamScore` int(11) DEFAULT '0',
+ `school` varchar(255) DEFAULT '',
  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8
 
@@ -36,4 +37,10 @@ CREATE TABLE `submissions` (
  `problemName` varchar(255) NOT NULL,
  `status` varchar(32) NOT NULL,
  `filePath` varchar(255) NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8
+
+CREATE TABLE `clarifications` (
+ `team` varchar(255) NOT NULL,
+ `question` varchar(500) NOT NULL,
+ `answer` varchar(500) NOT NULL DEFAULT 'PENDING'
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8

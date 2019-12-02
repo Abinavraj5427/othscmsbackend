@@ -21,6 +21,7 @@
     //The path you wish to upload the file to
     $filePath = "submissions/" . $team . "/";
 
+    
     //separating by problem
     if (!is_dir($filePath.$problem)) 
     mkdir($filePath.$problem, 0700);
