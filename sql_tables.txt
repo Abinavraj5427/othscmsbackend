@@ -40,6 +40,7 @@ CREATE TABLE `submissions` (
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8
 
 CREATE TABLE `clarifications` (
+ `id` int(11) NOT NULL AUTO_INCREMENT,
  `team` varchar(255) NOT NULL,
  `question` varchar(500) NOT NULL,
  `answer` varchar(500) NOT NULL DEFAULT 'PENDING'

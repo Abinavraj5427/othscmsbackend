@@ -47,12 +47,8 @@
             }
             $teams["$t"] += $score;
           }
-
         }
-
       }
-
-
     }
     $schools = array();
     for($i = 1; $i<count($teams)+1; $i++){
@@ -63,7 +59,6 @@
           $schools["$i"] = new Team($result["school"], $teams["$i"]);
         }
       }
-
     }
     echo json_encode($schools);
   }

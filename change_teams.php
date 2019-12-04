@@ -14,10 +14,13 @@
     //connecting to SQL Database
     $con = mysqli_connect("localhost", "root", "", "othscmsdb");
 
+    if (!is_dir('submissions')){
+        mkdir("submissions", 0700);
+    }
 
     if($append){
         
-        //looking for matching ptoblem
+        //looking for matching problem
         $sql = "INSERT INTO users (username, password, role) VALUES (\"$username\", \"$password\", \"$role\")";
         $res = mysqli_query($con, $sql);
         if (!is_dir('submissions/'.$username) && $role == 'COMPETITOR') 
