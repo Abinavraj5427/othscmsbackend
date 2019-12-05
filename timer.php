@@ -13,6 +13,7 @@
     if(mysqli_num_rows($res)>0){
         while($row = mysqli_fetch_assoc($res)){
             $response = $row['timer']-time();
+            if($response<0)$response = 0;
             echo json_encode($response);
             exit;
         }
