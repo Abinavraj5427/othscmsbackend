@@ -10,7 +10,8 @@
     $time = time()+7200;
     $sql =
     "UPDATE timer
-    SET timer = $time";
+    SET timer = $time
+    ";
 
     $res = mysqli_query($con, $sql);
     echo "SUCCESS";
