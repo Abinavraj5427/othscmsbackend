@@ -8,6 +8,7 @@
     $_POST = json_decode($rest_json, true);
     $username =  $_POST['team'];
     $question =  $_POST['question'];
+    $problem = $_POST['problem'];
 
 
     //connecting to SQL Database
@@ -15,7 +16,7 @@
 
     if(isset($question)){
         //insert to database
-        $sql = "INSERT INTO clarifications (team, question) VALUES (\"$username\", \"$question\")";
+        $sql = "INSERT INTO clarifications (team, question, problem) VALUES (\"$username\", \"$question\", \"$problem\")";
         $res = mysqli_query($con, $sql);
         echo "success";    
     die;
