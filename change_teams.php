@@ -1,4 +1,6 @@
 <?php
+
+
     //CORS Headers
     header("Access-Control-Allow-Origin: *");
     header("Access-Control-Allow-Headers: *");
@@ -20,23 +22,41 @@
 
     if($append){
         
-        //looking for matching problem
+        //looking for matching user
         $sql = "INSERT INTO users (username, password, role) VALUES (\"$username\", \"$password\", \"$role\")";
         $res = mysqli_query($con, $sql);
+        if($role == "COMPETITOR"){
+            $sql = "INSERT INTO teams (team) VALUES (\"$username\")";
+            $res = mysqli_query($con, $sql);
+        }
         if (!is_dir('submissions/'.$username) && $role == 'COMPETITOR') 
             mkdir("submissions/".$username, 0700);
         echo "success";
         die;
     }
-    else{
-        //looking for matching problem
+    //checks if this is not a preflight request
+    else if ($username != ""){
+        //looking for matching user
         $sql = "DELETE FROM users WHERE username = \"$username\"";
         $res = mysqli_query($con, $sql);
-        if (is_dir('submissions/'.$username) && $role == 'COMPETITOR')
-            rmdir('submissions/'.$username);
+        $sql = "DELETE FROM teams WHERE team = \"$username\"";
+        $res = mysqli_query($con, $sql);
+        if (is_dir('submissions/'.$username))
+            rmdir_recursive('submissions/'.$username.'/');
         echo "success";
         die;
     }
 
     echo "failure";
+
+    //recursively removes all directories
+    function rmdir_recursive($dir) {
+        foreach(scandir($dir) as $file) {
+            if ('.' === $file || '..' === $file) continue;
+            if (is_dir("$dir/$file")) rmdir_recursive("$dir/$file");
+            else unlink("$dir/$file");
+        }
+        rmdir($dir);
+    }
+
     ?>
