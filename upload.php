@@ -28,13 +28,17 @@
 
     $filePath = $filePath . $problem . "/";
 
-    //date for separating attempts
-    $date = date('Y-m-d-H-i-s');
-    mkdir($filePath.$date, 0700);
 
-    $filePath = $filePath . $date . "/";
+
 
     if(is_uploaded_file($filetemp)) {
+        
+        //date for separating attempts
+        $date = date('Y-m-d-H-i-s');
+        mkdir($filePath.$date, 0700);
+
+        $filePath = $filePath . $date . "/";
+
         if(move_uploaded_file($filetemp, $filePath . $filename)) {
 
             $filePath = $filePath . $filename;
