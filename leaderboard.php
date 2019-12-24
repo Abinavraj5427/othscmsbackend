@@ -65,7 +65,7 @@
           }
         }
       }else{
-        //prevent default values
+        //prevent nonexistant indices
         $teams["$team_id"] = 0;
       }
     }
