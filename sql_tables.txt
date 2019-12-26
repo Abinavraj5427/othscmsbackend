@@ -31,12 +31,14 @@ CREATE TABLE `problems` (
 ) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=utf8
 
 CREATE TABLE `submissions` (
- `team` int(128) NOT NULL,
- `user` varchar(255) NOT NULL,
- `problem` int(32) NOT NULL,
- `problemName` varchar(255) NOT NULL,
- `status` varchar(32) NOT NULL,
- `filePath` varchar(255) NOT NULL
+ `id` int(11) NOT NULL AUTO_INCREMENT,
+ `systemTime` timestamp(6) NOT NULL DEFAULT CURRENT_TIMESTAMP(6),
+ `user` varchar(255) DEFAULT NULL,
+ `problemName` varchar(255) DEFAULT NULL,
+ `status` varchar(32) NOT NULL DEFAULT 'PENDING',
+ `description` varchar(255) NOT NULL DEFAULT 'None',
+ `filePath` varchar(255) DEFAULT NULL,
+ PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8
 
 CREATE TABLE `clarifications` (
