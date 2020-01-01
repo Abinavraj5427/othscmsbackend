@@ -12,17 +12,16 @@
     $res = mysqli_query($con, $sql);
     if(mysqli_num_rows($res)>0){
         while($row = mysqli_fetch_assoc($res)){
-            if($row['paused']==1){
-              $newval = $row['timer'];
-              $cmd = "UPDATE timer SET timer = $newval";
-            }else{
-              $newval = $row['timer']-time();
-            }
-            $response = $newval;
-            if($response<0)$response = 0;
+            $response = $row['paused'];
+            if($response==0)$response = 1;
+            else $response = 0;
+            $sql =
+            "UPDATE timer
+            SET paused = $response
+            ";
+            mysqli_query($con, $sql);
             echo json_encode($response);
             exit;
         }
     }
-    echo json_encode($response);
 ?>
