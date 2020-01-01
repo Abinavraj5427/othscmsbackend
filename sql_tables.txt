@@ -49,3 +49,10 @@ CREATE TABLE `clarifications` (
  `answer` varchar(500) NOT NULL DEFAULT 'PENDING',
  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM AUTO_INCREMENT=12 DEFAULT CHARSET=utf8
+
+CREATE TABLE `timer` (
+ `timer` int(11) NOT NULL,
+ `paused` int(11) NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8
+
+INSERT INTO `timer`(`timer`, `paused`) VALUES (0, 0)
