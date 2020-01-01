@@ -2,15 +2,16 @@ CREATE TABLE `users` (
  `id` int(11) NOT NULL AUTO_INCREMENT,
  `username` varchar(50) NOT NULL,
  `password` varchar(255) NOT NULL,
- `auth_token` varchar(128) DEFAULT NULL,
+ `auth_token` varchar(150) DEFAULT NULL,
  `role` varchar(50) DEFAULT 'COMPETITOR',
  `created_at` datetime DEFAULT CURRENT_TIMESTAMP,
  PRIMARY KEY (`id`),
  UNIQUE KEY `username` (`username`)
-) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=utf8
+) ENGINE=MyISAM AUTO_INCREMENT=53 DEFAULT CHARSET=utf8
 
 CREATE TABLE `teams` (
  `id` int(11) NOT NULL AUTO_INCREMENT,
+ `team` varchar(255) NOT NULL,
  `member1` varchar(50) DEFAULT '',
  `member2` varchar(50) DEFAULT '',
  `member3` varchar(50) DEFAULT '',
@@ -18,10 +19,9 @@ CREATE TABLE `teams` (
  `score1` int(11) DEFAULT '0',
  `score2` int(11) DEFAULT '0',
  `score3` int(11) DEFAULT '0',
- `teamScore` int(11) DEFAULT '0',
- `school` varchar(255) DEFAULT '',
+ `school` varchar(255) NOT NULL DEFAULT 'undefined',
  PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8
+) ENGINE=MyISAM AUTO_INCREMENT=43 DEFAULT CHARSET=utf8
 
 CREATE TABLE `problems` (
  `id` int(11) NOT NULL AUTO_INCREMENT,
@@ -39,7 +39,7 @@ CREATE TABLE `submissions` (
  `description` varchar(255) NOT NULL DEFAULT 'None',
  `filePath` varchar(255) DEFAULT NULL,
  PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8
+) ENGINE=MyISAM AUTO_INCREMENT=7 DEFAULT CHARSET=utf8
 
 CREATE TABLE `clarifications` (
  `id` int(11) NOT NULL AUTO_INCREMENT,
