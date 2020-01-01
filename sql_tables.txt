@@ -44,6 +44,8 @@ CREATE TABLE `submissions` (
 CREATE TABLE `clarifications` (
  `id` int(11) NOT NULL AUTO_INCREMENT,
  `team` varchar(255) NOT NULL,
+ `problem` varchar(255) NOT NULL DEFAULT 'no problem',
  `question` varchar(500) NOT NULL,
- `answer` varchar(500) NOT NULL DEFAULT 'PENDING'
-) ENGINE=MyISAM DEFAULT CHARSET=utf8
+ `answer` varchar(500) NOT NULL DEFAULT 'PENDING',
+ PRIMARY KEY (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=12 DEFAULT CHARSET=utf8
