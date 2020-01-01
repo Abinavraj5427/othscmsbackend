@@ -20,6 +20,18 @@
             SET paused = $response
             ";
             mysqli_query($con, $sql);
+
+
+            if($response==1){
+              $now = time();
+              $sql = "UPDATE timer SET now = $now";
+              mysqli_query($con, $sql);
+
+            }else{
+              $set = $row['timer']+(time()-$row['now']);
+              $sql = "UPDATE timer SET timer = $set";
+              mysqli_query($con, $sql);
+            }
             echo json_encode($response);
             exit;
         }

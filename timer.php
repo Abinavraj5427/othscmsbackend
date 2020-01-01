@@ -13,8 +13,8 @@
     if(mysqli_num_rows($res)>0){
         while($row = mysqli_fetch_assoc($res)){
             if($row['paused']==1){
-              $newval = $row['timer'];
-              $cmd = "UPDATE timer SET timer = $newval";
+
+              $newval = $row['timer']-$row['now'];
             }else{
               $newval = $row['timer']-time();
             }
