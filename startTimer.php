@@ -14,5 +14,11 @@
     ";
 
     $res = mysqli_query($con, $sql);
+    $sql =
+    "UPDATE timer
+    SET paused = 0
+    ";
+
+    $res = mysqli_query($con, $sql);
     echo "SUCCESS";
 ?>
