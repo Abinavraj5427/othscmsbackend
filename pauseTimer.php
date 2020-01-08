@@ -26,7 +26,6 @@
               $now = time();
               $sql = "UPDATE timer SET now = $now";
               mysqli_query($con, $sql);
-
             }else{
               $set = $row['timer']+(time()-$row['now']);
               $sql = "UPDATE timer SET timer = $set";
