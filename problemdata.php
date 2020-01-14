@@ -17,11 +17,12 @@
     $res = mysqli_query($con, $sql);
 
 
-    
+
     //checking if password is correct
     if(mysqli_num_rows($res)>0){
       while($row = mysqli_fetch_assoc($res)){
-        $response = array('team' => $row['user'], 'filePath' => $row['filePath'], 'systemTime' => $row['systemTime']);
+        $file = file($row['filePath']);
+        $response = array('team' => $row['user'], 'filePath' => $row['filePath'], 'systemTime' => $row['systemTime'], 'code' => $file);
         echo json_encode($response);
         exit;
       }
