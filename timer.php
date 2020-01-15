@@ -19,7 +19,11 @@
               $newval = $row['timer']-time();
             }
             $response = $newval;
-            if($response<0)$response = 0;
+            if($response<0){
+              $response = 0;
+              header("Refresh:0");
+            }
+
             echo json_encode($response);
             exit;
         }
