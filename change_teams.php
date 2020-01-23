@@ -41,6 +41,8 @@
         $res = mysqli_query($con, $sql);
         $sql = "DELETE FROM teams WHERE team = \"$username\"";
         $res = mysqli_query($con, $sql);
+        $sql = "DELETE FROM submissions WHERE user = \"$username\"";
+        $res = mysqli_query($con, $sql);
         if (is_dir('submissions/'.$username))
             rmdir_recursive('submissions/'.$username.'/');
         echo "success";
