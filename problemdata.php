@@ -17,12 +17,18 @@
     $res = mysqli_query($con, $sql);
 
 
-
     //checking if password is correct
     if(mysqli_num_rows($res)>0){
       while($row = mysqli_fetch_assoc($res)){
+
+        //$output = shell_exec($row['filePath']);
+        //$output = array();
+        $file=$row['filePath'];
+        exec('javac '.$file);
+        exec("java $file", $output);
+
         $file = file($row['filePath']);
-        $response = array('team' => $row['user'], 'filePath' => $row['filePath'], 'systemTime' => $row['systemTime'], 'code' => $file);
+        $response = array('team' => $row['user'], 'filePath' => $row['filePath'], 'systemTime' => $row['systemTime'], 'output' => $output);
         echo json_encode($response);
         exit;
       }
