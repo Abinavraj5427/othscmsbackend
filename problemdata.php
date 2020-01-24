@@ -28,7 +28,7 @@
         exec("java $file", $output);
 
         $file = file($row['filePath']);
-        $response = array('team' => $row['user'], 'filePath' => $row['filePath'], 'systemTime' => $row['systemTime'], 'output' => $output);
+        $response = array('team' => $row['user'], 'filePath' => $row['filePath'], 'systemTime' => $row['systemTime'], 'code' => $file,'output' => $output);
         echo json_encode($response);
         exit;
       }
