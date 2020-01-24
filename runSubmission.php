@@ -1,4 +1,5 @@
 <?php
+<<<<<<< HEAD
 
 //CORS Headers
 header("Access-Control-Allow-Origin: *");
@@ -18,3 +19,11 @@ echo exec('javac '.$file." 2>&1");
 echo exec('java '.substr($file, 0, strlen($file)-5)." 2>&1");
 */
 ?>
+=======
+    //CORS Headers
+    header("Access-Control-Allow-Origin: *");
+    header("Access-Control-Allow-Headers: *");
+
+    
+?>
+>>>>>>> 490cf9d0d893b6d775f6130c08a7bcd8ea2c9653
