@@ -27,8 +27,9 @@
         exec('javac '.$file);
         exec("java $file", $output);
 
-        $file = file($row['filePath']);
-        $response = array('team' => $row['user'], 'filePath' => $row['filePath'], 'systemTime' => $row['systemTime'], 'code' => $file,'output' => $output);
+        $code = file($row['filePath']);
+
+        $response = array('team' => $row['user'], 'filePath' => $row['filePath'], 'systemTime' => $row['systemTime'], 'code' => $code,'output' => $output);
         echo json_encode($response);
         exit;
       }
