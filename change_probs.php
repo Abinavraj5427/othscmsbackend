@@ -14,7 +14,7 @@
 
 
     if($append){
-        
+    
         //looking for matching ptoblem
         $sql = "INSERT INTO problems (problem) VALUES (\"$problem\")";
         $res = mysqli_query($con, $sql);
